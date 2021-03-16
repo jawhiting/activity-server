@@ -1,2 +1,5 @@
 # Project exclude paths
 /target/
+/.idea/
+activity-server.iml
+dependency-reduced-pom.xml
