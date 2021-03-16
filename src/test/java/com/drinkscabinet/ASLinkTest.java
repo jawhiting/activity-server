@@ -23,6 +23,15 @@ public class ASLinkTest {
             "  \"name\": \"Preview\",\n" +
             "  \"height\": 100,\n" +
             "  \"width\": 101," +
+            "  \"preview\": {\n" +
+            "    \"type\": \"Video\",\n" +
+            "    \"name\": \"Trailer\",\n" +
+            "    \"duration\": \"PT1M\",\n" +
+            "    \"url\": {\n" +
+            "      \"href\": \"http://example.org/trailer.mkv\",\n" +
+            "      \"mediaType\": \"video/mkv\"\n" +
+            "    }\n" +
+            "  }," +
             "  \"rel\": [\"canonical\", \"preview\"]\n" +
             "}";
 
