@@ -7,8 +7,8 @@ import java.util.Set;
 
 public class ASLinkImpl extends JsonLdObjectImpl implements ASLink {
 
-    public ASLinkImpl(Map<String, Object> flattened) {
-        super(flattened, "https://www.w3.org/ns/activitystreams#");
+    public ASLinkImpl(JsonWrapper data) {
+        super(data, "https://www.w3.org/ns/activitystreams#");
     }
 
     @Override
@@ -43,11 +43,11 @@ public class ASLinkImpl extends JsonLdObjectImpl implements ASLink {
 
     @Override
     public Optional<Resource> getPreview() {
-        return getObject("preview");
+        return getResource("preview");
     }
 
     @Override
     public Set<String> getRel() {
-        return Set.copyOf(ASUtil.getList(getData().get(getContextBase() + "rel"), Object::toString, "@value"));
+        return Set.copyOf(getData().getList(getContextBase() + "rel", Object::toString, "@value"));
     }
 }

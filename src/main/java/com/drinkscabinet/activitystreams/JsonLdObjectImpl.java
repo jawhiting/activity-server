@@ -6,12 +6,12 @@ import java.util.Optional;
 
 public class JsonLdObjectImpl implements JsonLdObject {
 
-    private final Map<String, Object> data;
+    private final JsonWrapper data;
     private final String contextBase;
 
-    public JsonLdObjectImpl(Map<String, Object> flattened, String contextBase) {
+    public JsonLdObjectImpl(JsonWrapper data, String contextBase) {
         // Pass in the node below graph
-        data = flattened;
+        this.data = data;
         this.contextBase = contextBase;
     }
 
@@ -19,34 +19,34 @@ public class JsonLdObjectImpl implements JsonLdObject {
         return contextBase;
     }
 
-    public Map<String, Object> getData() {
+    public JsonWrapper getData() {
         return data;
     }
 
     public Optional<URI> getUri(String key) {
-        return ASUtil.getURI(data, contextBase + key);
+        return data.getURI(contextBase + key);
     }
 
     public Optional<String> getString(String key) {
-        return ASUtil.getString(data, contextBase + key);
+        return data.getString(contextBase + key);
     }
 
     public Optional<Integer> getInt(String key) {
-        return ASUtil.getInt(data, contextBase + key);
+        return data.getInt(contextBase + key);
     }
 
-    public Optional<? extends JsonLdObject> getObject(String key) {
-        return ASUtil.getObject(data, contextBase + key, contextBase);
+    public Optional<Resource> getResource(String key) {
+        return data.getResource(contextBase + key);
     }
 
     @Override
-    public Optional<URI> getId() {
-        return ASUtil.getURI(data, "@id");
+    public Optional<String> getAtId() {
+        return data.getString("@id");
     }
 
     @Override
     public URI getType() {
-        return ASUtil.getURI(data, "@type").orElseThrow();
+        return data.getURI("@type").orElseThrow();
     }
 }
 

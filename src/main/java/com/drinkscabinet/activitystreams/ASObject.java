@@ -1,14 +1,13 @@
 package com.drinkscabinet.activitystreams;
 
 import java.time.OffsetDateTime;
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
 public interface ASObject extends JsonLdObject {
-    Optional<JsonLdObject> getAttachment();
-    Optional<JsonLdObject> getAttributedTo();
-    Optional<JsonLdObject> getAudience();
+    Optional<Resource> getAttachment();
+    Optional<Resource> getAttributedTo();
+    Optional<Resource> getAudience();
     Optional<String> getContent();
     Map<String, String> getContentMap();
     Optional<String> getContext();
@@ -16,18 +15,18 @@ public interface ASObject extends JsonLdObject {
     Map<String, String> getNameMap();
     Optional<OffsetDateTime> getEndTime();
     Optional<OffsetDateTime> getStartTime();
-    Optional<JsonLdObject> getGenerator();
-    List<JsonLdObject> getIcon();
-    List<JsonLdObject> getImage();
-    List<JsonLdObject> getInReplyTo();
-    List<JsonLdObject> getLocation();
-    List<JsonLdObject> getPreview();
+    Optional<Resource> getGenerator();
+    Optional<Resource> getIcon();
+    Optional<Resource> getImage();
+    Optional<Resource> getInReplyTo();
+    Optional<Resource> getLocation();
+    Optional<Resource> getPreview();
     Optional<OffsetDateTime> getPublished();
     Optional<OffsetDateTime> getUpdated();
     Optional<ASCollection> getReplies();
     Optional<String> getSummary();
     Map<String, String> getSummaryMap();
-    List<Resource> getTags();
-    List<Resource> getUrls();
-    List<Resource> getTo();
+    Optional<Resource> getTags();
+    Optional<Resource> getUrls();
+    Optional<Resource> getTo();
 }
