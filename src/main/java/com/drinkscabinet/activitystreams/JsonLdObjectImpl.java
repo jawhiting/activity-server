@@ -1,6 +1,7 @@
 package com.drinkscabinet.activitystreams;
 
 import java.net.URI;
+import java.time.OffsetDateTime;
 import java.util.Map;
 import java.util.Optional;
 
@@ -29,6 +30,14 @@ public class JsonLdObjectImpl implements JsonLdObject {
 
     public Optional<String> getString(String key) {
         return data.getString(contextBase + key);
+    }
+
+    public Map<String, String> getStringMap(String key, String mapKey, String mapValue) {
+        return data.getStringMap(contextBase + key, mapKey, mapValue);
+    }
+
+    public Optional<OffsetDateTime> getDateTime(String key) {
+        return data.getDateTime(contextBase + key);
     }
 
     public Optional<Integer> getInt(String key) {

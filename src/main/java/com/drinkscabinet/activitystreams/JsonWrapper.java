@@ -6,6 +6,7 @@ import com.github.jsonldjava.utils.JsonUtils;
 
 import java.io.IOException;
 import java.net.URI;
+import java.time.OffsetDateTime;
 import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
@@ -63,12 +64,40 @@ public class JsonWrapper {
         else return Optional.ofNullable(converter.apply(o));
     }
 
+    public URI getType() {
+        return getURI("@type").orElseThrow();
+    }
+
     public Optional<URI> getURI(String key) {
         return getData(data.get(key), o -> URI.create((String)o), "@id");
     }
 
     public Optional<String> getString(String key) {
         return getData(data.get(key), o -> (String)o, "@value");
+    }
+
+    public Map<String, String> getStringMap(String key, String mapKey, String mapValue) {
+        List<Map<String, String>> map = (List<Map<String, String>>) data.get(key);
+        Map<String, String> result = new TreeMap<>();
+        for (Map<String, String> m : map) {
+            String k = m.get(mapKey);
+            if( k != null ) {
+                result.put(k, m.get(mapValue));
+            }
+        }
+        return result;
+    }
+
+    public Optional<OffsetDateTime> getDateTime(String key) {
+        Optional<String> val = getString(key);
+        if (val.isPresent()) {
+            try {
+                return Optional.of(OffsetDateTime.parse(val.get()));
+            } catch (Exception ignore) {
+
+            }
+        }
+        return Optional.empty();
     }
 
     public Optional<Integer> getInt(String key) {

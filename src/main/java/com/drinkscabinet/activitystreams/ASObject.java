@@ -23,7 +23,7 @@ public interface ASObject extends JsonLdObject {
     Optional<Resource> getPreview();
     Optional<OffsetDateTime> getPublished();
     Optional<OffsetDateTime> getUpdated();
-    Optional<ASCollection> getReplies();
+    Optional<Resource> getReplies();
     Optional<String> getSummary();
     Map<String, String> getSummaryMap();
     Optional<Resource> getTags();
