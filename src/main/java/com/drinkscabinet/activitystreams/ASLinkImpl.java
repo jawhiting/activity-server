@@ -42,7 +42,7 @@ public class ASLinkImpl extends JsonLdObjectImpl implements ASLink {
     }
 
     @Override
-    public Optional<? extends JsonLdObject> getPreview() {
+    public Optional<Resource> getPreview() {
         return getObject("preview");
     }
 

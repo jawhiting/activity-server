@@ -74,6 +74,10 @@ public class ASUtil {
         return Optional.empty();
     }
 
+    public static Optional<Resource> getResource(Map<String, Object> data, String key) {
+
+    }
+
     public static void main(String[] args) throws IOException {
         Map<String, Object> flat = flatten(link);
         System.out.println(ASUtil.prettyPrint(flat));

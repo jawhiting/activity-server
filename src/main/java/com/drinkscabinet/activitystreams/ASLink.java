@@ -11,6 +11,6 @@ public interface ASLink extends JsonLdObject {
     Optional<String> getName();
     Optional<Integer> getHeight();
     Optional<Integer> getWidth();
-    Optional<? extends JsonLdObject> getPreview();
+    Optional<Resource> getPreview();
     Set<String> getRel();
 }
