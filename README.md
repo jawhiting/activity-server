@@ -1,3 +1,5 @@
+[![Coverage Status](https://coveralls.io/repos/github/jawhiting/activity-server/badge.svg?branch=master)](https://coveralls.io/github/jawhiting/activity-server?branch=master)
+
 # activity-server
 
 How to start the activity-server application
