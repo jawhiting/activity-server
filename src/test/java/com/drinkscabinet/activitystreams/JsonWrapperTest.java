@@ -1,4 +1,4 @@
-package com.drinkscabinet;
+package com.drinkscabinet.activitystreams;
 
 import com.drinkscabinet.activitystreams.ASLink;
 import com.drinkscabinet.activitystreams.ASLinkImpl;

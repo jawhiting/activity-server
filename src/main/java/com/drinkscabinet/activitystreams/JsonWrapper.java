@@ -36,6 +36,15 @@ public class JsonWrapper {
         }
     }
 
+    public String getId() {
+        return getString("@id").get();
+    }
+
+    public List<JsonWrapper> getNodes() {
+        // Get all the wrappers with different top object
+        return objects.values().stream().map(o -> new JsonWrapper(document, o, flattened, objects)).collect(Collectors.toList());
+    }
+
     public String toString() {
         try {
             return JsonUtils.toPrettyString(flattened);

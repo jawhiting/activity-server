@@ -66,7 +66,7 @@ public class MyHttpLoader implements DocumentLoader {
         this.maxRedirections = maxRedirections;
     }
 
-    public static final DocumentLoader defaultInstance() {
+    public static DocumentLoader defaultInstance() {
         return INSTANCE;
     }
 
