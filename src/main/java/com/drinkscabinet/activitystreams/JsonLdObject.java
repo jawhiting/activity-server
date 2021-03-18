@@ -4,6 +4,6 @@ import java.net.URI;
 import java.util.Optional;
 
 public interface JsonLdObject {
-    Optional<String> getAtId();
+    Optional<String> getId();
     URI getType();
 }

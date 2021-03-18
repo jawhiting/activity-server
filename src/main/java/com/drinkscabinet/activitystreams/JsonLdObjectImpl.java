@@ -49,7 +49,7 @@ public class JsonLdObjectImpl implements JsonLdObject {
     }
 
     @Override
-    public Optional<String> getAtId() {
+    public Optional<String> getId() {
         return data.getString("@id");
     }
 

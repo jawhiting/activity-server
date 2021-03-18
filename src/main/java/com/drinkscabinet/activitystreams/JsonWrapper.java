@@ -27,6 +27,8 @@ public class JsonWrapper {
         JsonLdOptions options = new JsonLdOptions();
         flattened = (List)JsonLdProcessor.flatten(jsonObject, options);
         // The list elements are all the objects, starting with the main one.
+        // TODO - top node is not always the first
+        // TODO - search for a node that has a proper id first
         data = flattened.get(0);
         // Now index all the objects in case we need to access them by id later
         for (Map<String, Object> stringObjectMap : flattened) {
